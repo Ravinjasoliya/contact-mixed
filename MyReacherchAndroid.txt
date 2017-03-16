@@ -1,0 +1,77 @@
+	//for getting bettry level
+	
+	IntentFilter im=new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+	//create obj of intentfilter
+	
+    Intent bettry=registerReceiver(null,im);
+	//register intentfilter
+	
+    //get level
+    int level1 =bettry.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+	
+	//print level
+    Toast.makeText(getApplicationContext(), "BETTRY = "+level1+"%", Toast.LENGTH_SHORT).show();
+
+	// hide actionbar
+        ActionBar actionBar=getSupportActionBar();
+	actionbar.hide();
+
+	//or change theme in style.xml and apply in perticular activityin manifeast
+
+	// check or validate email input
+	Patterns.EMAIL_ADDRESS.matcher(editText.getText()).matches();//return boolean
+
+	//change application name
+		change in manifest under appplication label
+    
+	//hide title bar code put before setcontentview
+    requestWindowFeature(FEATURE_NO_TITLE);
+	
+	//get full screen
+	this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+       
+	//Run App In Real Device wireless
+	
+	--adb insatlled on pc
+	--Root Mobile
+	--start usb debugging 
+	--install network adb.apk
+	--Start app give super user permission
+	--click on in app
+	--open cmd type adb connect 192.168.43.1
+	--get ip using ipconfig/all
+	
+	//Run App on mobile using usb
+	
+	start usb debugging
+	connect cable
+	install driver of mobile
+	if not found right click on my computer then
+	manage, then update usb driver
+	start internet to download
+	
+	or 
+	root your mobile
+	
+	
+	read contact
+	
+	 public void readContacts() {
+
+        Cursor phones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
+
+        while (phones.moveToNext())
+        {
+            mybean=new Mybean();
+
+            String name=phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+            String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+
+            mybean.setMno(phoneNumber);
+            mybean.setName(name);
+
+            arrayList.add(mybean);
+
+            Log.e("contact",name + phoneNumber + "null");
+        }
+        phones.close();

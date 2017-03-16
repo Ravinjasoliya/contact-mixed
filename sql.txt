@@ -1,0 +1,33 @@
+1:
+create table salesperson
+  (id number(3) primary key,
+   name varchar2(50),
+    age number(3),
+    salary number(8));
+
+
+2:
+ insert into salesperson values(&id,'&name',&age,&salary);
+
+3:
+ create table customer
+  2  (id number(3) primary key,
+  3  name varchar2(20),
+  4  city varchar2(20),
+  5  ind_type varchar2(2));
+
+4:
+insert into customer values(&id,'&name','&city','&ind_type');
+
+
+
+5:
+create table orders
+   (Numbers number(3) primary key,
+   order_date date,
+    cust_id number(3) references customer(id),
+    salesp_id number(3) references salesperson(id),
+    amount number(7));
+
+6:
+insert into orders values(&Numbers,'&date',&cust_id,&salesp_id,&amount);

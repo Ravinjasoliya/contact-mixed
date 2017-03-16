@@ -1,0 +1,20 @@
+ConnectivityManager cm=(ConnectivityManager)getSystemService(this.CONNECTIVITY_SERVICE);
+NetworkInfo networkInfo=cm.getActiveNetworkInfo();
+
+try
+{
+	if(networkInfo.isConnected())
+	{
+		
+	}
+	else
+	{
+
+		Toast.makeText(MainActivity.this,"Data Service Not Available",Toast.LENGTH_SHORT ).show();
+	}
+
+}
+catch(Exception e)
+{
+
+}
